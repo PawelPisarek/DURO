@@ -10,4 +10,23 @@ describe('app', () => {
         app.quieter('HELLO!!!1one').should.eql('hello')
     })
 
+    it('should 3 + 3 = 6', () => {
+        const summary = app.curried((x) => x + x);
+        return summary(3).should.eql(6);
+    });
+
+    it('should 3 + 3 + 3 = 9', () => {
+        const summary = app.curried((x) => x + x + x);
+        return summary(3).should.eql(9);
+    });
+
+    it('should 3 * 3 = 9', () => {
+        const summary = app.curried((x) => x * x);
+        return summary(3).should.eql(9);
+    });
+    it('should 3 * 3 * 3 = 27', () => {
+        const summary = app.curried((x) => x * x * x);
+        return summary(3).should.eql(27);
+    });
+
 })
